@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+        width: 100%;            
+        height: 100%;
+        font-size: 62.5%;
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+            border: 1px solid red;
+            position: relative;
+            display: -webkit-flex;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container div{
+            position: absolute;
+            width: 45%;
+            height: 32%;
+            border: 1px solid red;
+            -webkit-transition: all 1s ease;
+            -o-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            transition: all 1s ease;
+        }
+        .container div:nth-of-type(1){ /*左边*/
+            left: 10%;
+            background: rgb(68, 224, 89);
+            animation: fadeIn_test   1s   ease forwards;
+        }
+        .container div:nth-of-type(2){ /* 主显示*/
+            -webkit-transform:scale(1.3) ;
+            -moz-transform:scale(1.3) ;
+            -o-transform:scale(1.3) ;
+            transform: scale(1.3);
+            background: rgb(63, 242, 255);
+            top: 29%;
+            z-index: 1;
+            animation: fadeOut 1s ease both;
+        }
+        .container div:nth-of-type(3){/*右边*/
+            right: 10%;
+            background: rgb(228, 159, 95);
+            animation: fadeIn 1s ease both;
+        }
+       @keyframes fadeOut {
+            0%{
+                transform: scale(1.3);
+                left: 30%;
+                /* opacity: 1.0; */
+            }
+            100%{
+                transform: scale(1.0);
+                top: 34.0%;
+                left: 5%;
+                /* opacity: .5; */
+                /* left: 10%; */
+            }
+       }
+       @keyframes fadeIn {
+            0%{
+                transform: scale(1.0);
+                top: 28%;
+                right: 10%;
+                opacity: .5;
+            }
+            100%{
+                transform: scale(1.3);
+                top: 29.5%;
+                right: 30%;
+                z-index: 2;
+                opacity: 1.0;
+            }
+       }
+       @keyframes fadeIn_test {
+            0%{
+                opacity: 1.0;
+            }
+            100%{
+                left: 45%;
+                opacity: .8;
+            }
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>
